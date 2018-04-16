@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        var max = 10, min = -10;
+        var a = Math.floor(Math.random() * (max - min + 1) + min);
+        var b = Math.floor(Math.random() * (max - min + 1) + min);
+        
+        var result;
+        if(a >=0 && b>=0) {            
+            result = mathOperation(a, b, 'min');
+        } else if(a < 0 && b < 0) {
+            result = mathOperation(a, b, 'multipl');
+        } else {
+            result = mathOperation(a, b, 'sum');
+        }
+        console.log(a, b, result);
+        
+        function mathOperation(a, b, operation) {
+            var x;
+            switch(operation) {
+                case 'sum':
+                    x = a + b;
+                    break;
+                case 'min':
+                    x = a - b;
+                    break;
+                case 'multipl':
+                    x = a * b;
+                    break;
+            }
+            return x;
+        }
+
+   </script> 
+</head>
+<body>
+   
+</body>
+</html>

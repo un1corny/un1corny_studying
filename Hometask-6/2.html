@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        function init () {
+            var buyGood = document.getElementsByTagName('a');
+            for (var i = 0; i < buyGood.length; i++) {
+                buyGood[i].onclick = shopList;
+            }
+        }
+
+        function shopList (eventObj) {
+            var buyButton = eventObj.target; //button
+            var goodCard = buyButton.closest('.shopCard');
+
+            var goodName = goodCard.getElementsByClassName('good')[0].innerText;
+            var goodPrice = goodCard.getElementsByClassName('price')[0].innerText;
+
+            var listGood = document.getElementById('basket');
+            var chosenGood = document.createElement('li');
+            chosenGood.innerText = goodName;
+            listGood.appendChild(chosenGood);
+
+            basketSum += +goodPrice;
+            var goodsSum = document.getElementById('sum');
+            goodsSum.innerText = basketSum;
+            return false;
+        }
+
+        var basketSum = 0;
+
+        window.onload = init;
+    
+    </script>
+</head>
+<body>
+   <div class="small">
+        <div class="shopCard">
+            <img src="images/small/1.jpg">
+            <p><span class="good">Кот 1</span> <br> Кот игруля!</p>
+            <p> <span class="price"> 1600</span> руб.</p>
+            <a href="" class="button">
+                <span>купить</span>
+            </a>
+        </div>
+        <div class="shopCard">
+            <img src="images/small/2.jpg">
+            <p><span class="good">Кот 2</span> <br> Удивленный кот!</p>
+            <p><span class="price">1400</span> руб.</p>
+            <a href="" class="button">
+                <span>купить</span>
+            </a>
+        </div>
+        <div class="shopCard">
+            <img src="images/small/3.jpg">
+            <p><span class="good">Кот 3</span> <br> Кот-засоня!</p>
+            <p><span class="price">2600</span> руб.</p>
+            <a href="" class="button">
+                <span>купить</span>
+            </a>
+        </div>
+        <div class="shopCard">
+            <img src="images/small/4.jpg">
+            <p><span class="good">Кот 4</span> <br> Летающий кот!</p>
+            <p><span class="price">3000</span> руб.</p>
+            <a href="" class="button">
+                <span>купить</span>
+            </a>
+        </div>
+    </div> 
+    <hr>
+    <h2>Корзина</h2>
+    <p>У вас в корзине:</p>
+    <ul id="basket">
+        
+    </ul>
+    <p>Стоимость ваших покупок: <span id="sum">0</span> руб.</p>
+</body>
+</html>

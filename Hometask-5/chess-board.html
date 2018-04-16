@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+        <div id="table"></div>
+
+ 
+        <script>
+   
+            function cellColor(rowNumber, colNumber) {
+                if (rowNumber < 8 && colNumber !== 0) {
+                    return rowNumber%2 == colNumber%2 ? 'dark' : '';
+                } else return '';
+            }
+
+            function cellContent(rowNumber, colNumber) {
+                var cellName = rowNumber * 10 + colNumber;
+                var content = '';
+
+                // колонка с номерами клеток
+                if (colNumber == 0 && rowNumber < 8) return (8-rowNumber);
+                if (rowNumber == 8 && colNumber > 0) return (String.fromCharCode('A'.charCodeAt() + colNumber-1));
+
+
+                switch (cellName) {
+                    case 1:
+                    case 8: // черная ладья
+                        content = '&#9820;';
+                        break;
+          
+                    case 2:
+                    case 7: // черный конь
+                        content = '&#9822;';
+                        break;
+                    
+                    case 3:
+                    case 6: // черный слон
+                        content = '&#9821;';
+                        break;
+
+                    case 4: // черный ферзь
+                        content = '&#9819;';
+                        break;
+                    
+                    case 5: // черный король
+                        content = '&#9818;';
+                        break;
+                    
+                    case 11:
+                    case 12:
+                    case 13:
+                    case 14:
+                    case 15:
+                    case 16:
+                    case 17:
+                    case 18: // черные пешки
+                        content = '&#9823;';
+                        break; 
+
+                    case 71:
+                    case 78: // белая ладья
+                        content = '&#9814;';
+                        break;
+          
+                    case 72:
+                    case 77: // белый конь
+                        content = '&#9816;';
+                        break;
+                    
+                    case 73:
+                    case 76: // белый слон
+                        content = '&#9815;';
+                        break;
+
+                    case 74: // белый ферзь
+                        content = '&#9813;';
+                        break;
+                    
+                    case 75: // белый король
+                        content = '&#9812;';
+                        break;
+                    
+                    case 61:
+                    case 62:
+                    case 63:
+                    case 64:
+                    case 65:
+                    case 66:
+                    case 67:
+                    case 68: // белые пешки
+                        content = '&#9817;';
+                        break;
+                }
+
+                return content;
+                
+            }
+
+            function generateTable(row, column) {
+                var table = '<table class="chess-board">';
+        
+                for( var rowCell = 0; rowCell < row; rowCell++ ){
+                    table += '<tr>';
+                    for( var columnCell = 0; columnCell < column; columnCell++ ){
+                        table += '<td class="' + cellColor(rowCell, columnCell) + '">'+ cellContent(rowCell, columnCell) +'</td>';
+                    }
+                    table += '</tr>';
+                }
+                table += '</table>';
+                document.getElementById('table').innerHTML = table;                
+            }
+
+
+            generateTable(9, 9)
+        </script>
+      
+</body>
+</html>
