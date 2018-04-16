@@ -1,0 +1,25 @@
+
+.chess-board {
+	background-color: #CD853F;
+	font-size:30px;
+	margin:20px;
+    border: 1px solid #000000;
+    
+}
+ 
+.chess-board td, tr {
+    border: 1px solid #000000;
+	padding:21px 25px 22px 25px;
+}
+
+.dark {
+    background-color: #8B4513;
+}
+
+.chess-board td:first-child,
+.chess-board tr:last-child{
+    background-color: white;
+}
+
+
+

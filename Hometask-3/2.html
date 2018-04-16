@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        var n = 10;
+        var i = 0;
+
+        function someNumbers() {
+            if (i == 0) {
+                return i + ' - это ноль';
+            } else if (i % 2 == 0) {
+                return i + ' - четное число';
+            } else {
+                return i + ' - нечетное число';
+            }
+        }
+        
+        var result = '';
+        do {
+            result += someNumbers() + '<br>';
+            i++;
+        } while (i<=n);
+        
+        document.write(result);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

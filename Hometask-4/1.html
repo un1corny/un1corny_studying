@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+        function howManyNumbers(number) {
+            if (number > 999) {
+                console.log('Введите число до 999');
+                return {};
+                
+            } 
+            return {
+                units: number % 10,
+                tenners: parseInt((number % 100)/10),
+                hundreds: parseInt(number/100)
+            }    
+        }
+        
+        var userNumerb = prompt('Введите число от 0 до 999');
+        var result = howManyNumbers(userNumerb);
+        var message = "У вас: ";
+        
+        if (result.units > 0) {
+            message += result.units + ' единиц ';  
+        }
+        if (result.tenners > 0) {
+            message += result.tenners + ' десяток ';  
+        }
+        if (result.hundreds > 0) {
+            message += result.hundreds + ' сотен';  
+        }
+
+       alert(message);
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
